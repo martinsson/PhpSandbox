@@ -11,8 +11,12 @@
  * @author jm1974
  */
 class Calc {
+    private $cell;
+    public function insert($cell, $content) {
+        $this->cell = $content;
+    }
     public function contentOf() {
-        return "";
+        return $this->cell;
     }
 }
 
