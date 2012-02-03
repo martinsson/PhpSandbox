@@ -32,6 +32,16 @@ class CalcTest  extends PHPUnit_Framework_TestCase{
         assertThat($calc->contentOf('X3'), equalTo('Two'));
         assertThat($calc->contentOf('ZKH345'), equalTo('Three'));
     }
+    /** @test */
+    public function spacesAreIgnoredForNumericContent() {
+        $calc = new Calc();
+        $calc->insert('A21', '  1234  ');
+        assertThat($calc->contentOf('A21'), equalTo('1234'));
+        $calc->insert('B32', '   ');
+        assertThat($calc->contentOf('B32'), equalTo('   '));
+
+    }
+
     
 }
 
