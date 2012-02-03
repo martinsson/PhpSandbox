@@ -11,12 +11,12 @@
  * @author jm1974
  */
 class Calc {
-    private $cell;
+    private $cells = array();
     public function insert($cell, $content) {
-        $this->cell = $content;
+        $this->cells[$cell] = $content;
     }
-    public function contentOf() {
-        return $this->cell;
+    public function contentOf($cell) {
+        return isset($this->cells[$cell]) ? $this->cells[$cell] : '';
     }
 }
 
