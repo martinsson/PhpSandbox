@@ -39,7 +39,13 @@ class CalcTest  extends PHPUnit_Framework_TestCase{
         assertThat($calc->contentOf('A21'), equalTo('1234'));
         $calc->insert('B32', '   ');
         assertThat($calc->contentOf('B32'), equalTo('   '));
+    }
 
+    /** @test */
+    public function theLiteralContentIsStillAvailable() {
+        $calc = new Calc();
+        $calc->insert('A21', '  1234  ');
+        assertThat($calc->literalContentOf('A21'), equalTo('  1234  '));
     }
 
     

@@ -19,6 +19,9 @@ class Calc {
         $content =  isset($this->cells[$cell]) ? $this->cells[$cell] : '';
         return is_numeric(trim($content)) ? trim($content) : $content;
     }
+    public function literalContentOf($cell) {
+        return $this->cells[$cell];
+    }
 }
 
 ?>
