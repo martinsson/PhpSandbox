@@ -47,6 +47,24 @@ class CalcTest  extends PHPUnit_Framework_TestCase{
         $calc->insert('A21', '  1234  ');
         assertThat($calc->literalContentOf('A21'), equalTo('  1234  '));
     }
+    
+    /** @test */
+    public function itIsNotAFormulaWhenTheEqualSignIsNotFirst() {
+        $calc = new Calc();
+        $calc->insert('B3', " =7");
+        assertThat($calc->contentOf('B3'), equalTo(' =7'));
+        assertThat($calc->literalContentOf('B3'), equalTo(' =7'));
+    }
+    
+    /** @test */
+    public function formulasAreEvaluated() {
+        $calc = new Calc();
+        $calc->insert('B3', "=7");
+        assertThat($calc->contentOf('B3'), equalTo('7'));
+        assertThat($calc->literalContentOf('B3'), equalTo('=7'));
+        
+    }
+    
 
     
 }

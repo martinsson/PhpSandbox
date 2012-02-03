@@ -17,6 +17,7 @@ class Calc {
     }
     public function contentOf($cell) {
         $content =  isset($this->cells[$cell]) ? $this->cells[$cell] : '';
+        $content = substr($content, 0, 1) == "="? substr($content, 1) : $content;
         return is_numeric(trim($content)) ? trim($content) : $content;
     }
     public function literalContentOf($cell) {
